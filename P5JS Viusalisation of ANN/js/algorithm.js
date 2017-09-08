@@ -8,7 +8,7 @@ var weights2 = makeRandomArrayOfWeghts(4, 1);;
 var annGuesses;
 var totalIterations = 0;
 var started = false;
-var neuronSize = 50;
+var neuronSize;
 
 
 function mousePressed(){
@@ -33,6 +33,7 @@ function setup() {
 
 function draw() {
 	
+//	stroke(255);
 	textSize(25);
 	fill(100,100,0);
 	text("[0,1,0,1]", 75, 465);
@@ -130,18 +131,40 @@ function draw() {
 	// --------------- Neurons --------------------- //
 	fill(100,100,0);
 	// Inputs
-	ellipse(120, 400, neuronSize, neuronSize);
-	ellipse(240, 400, neuronSize, neuronSize);
-	ellipse(360, 400, neuronSize, neuronSize);
+	ellipse(120, 400, 50, 50);
+	ellipse(240, 400, 50, 50);
+	ellipse(360, 400, 50, 50);
+	
 	
 	// Hidden Layer
-	ellipse(98, 250, neuronSize, neuronSize);
-	ellipse(196, 250, neuronSize, neuronSize);
-	ellipse(284, 250, neuronSize, neuronSize);
-	ellipse(372, 250, neuronSize, neuronSize);
+	colour = map(Math.abs(weights1[0][0])+Math.abs(weights1[1][0])+Math.abs(weights1[2][0]), 0, 20, 0, 255);
+	stroke(colour);
+	fill(0);
+	neuronSize = map(Math.abs(weights1[0][0])+Math.abs(weights1[1][0])+Math.abs(weights1[2][0]), 0, 30, 10, 80)
+	ellipse(98+random(0,5), 250+random(0,5), neuronSize+random(0,neuronSize), neuronSize+random(0,neuronSize));
 	
+	colour = map(Math.abs(weights1[0][1])+Math.abs(weights1[1][1])+Math.abs(weights1[2][1]), 0, 20, 0, 255);
+	stroke(colour);
+	fill(0);
+	neuronSize = map(Math.abs(weights1[0][1])+Math.abs(weights1[1][1])+Math.abs(weights1[2][1]), 0, 30, 10, 80)
+	ellipse(196+random(0,5), 250+random(0,5), neuronSize+random(0,neuronSize), neuronSize+random(0,neuronSize));
+	
+	colour = map(Math.abs(weights1[0][2])+Math.abs(weights1[1][2])+Math.abs(weights1[2][2]), 0, 20, 0, 255);
+	stroke(colour);
+	fill(0);
+	neuronSize = map(Math.abs(weights1[0][2])+Math.abs(weights1[1][2])+Math.abs(weights1[2][2]), 0, 30, 10, 80)
+	ellipse(284+random(0,5), 250+random(0,5), neuronSize+random(0,neuronSize), neuronSize+random(0,neuronSize));
+	
+	colour = map(Math.abs(weights1[0][3])+Math.abs(weights1[1][3])+Math.abs(weights1[2][3]), 0, 20, 0, 255);
+	stroke(colour);
+	fill(0);
+	neuronSize = map(Math.abs(weights1[0][3])+Math.abs(weights1[1][3])+Math.abs(weights1[2][3]), 0, 30, 10, 80)
+	ellipse(372+random(0,5), 250+random(0,5), neuronSize+random(0,neuronSize), neuronSize+random(0,neuronSize));
+	
+	stroke("White");
 	// Output
-	ellipse(240, 100, neuronSize, neuronSize);
+	fill(100,100,0);
+	ellipse(240, 100, 50, 50);
 	
 	
 	// ---------- After Button Is Pressed ---------- //
